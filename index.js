@@ -90,7 +90,7 @@ function esTableroValido(t) {
   return true;
 }
 
-function resolverSudoku(t) {
+function solveSudoku(t) {
   function buscarVacia(t) {
     for (let f=0; f<9; f++) 
       for (let c=0; c<9; c++) 
@@ -175,7 +175,7 @@ document.getElementById("btnSolve").onclick=function(){
   if (!esTableroValido(t)) return mostrarMensaje("El tablero es inválido","error");
   let copia=JSON.parse(JSON.stringify(t));
   let t0=performance.now();
-  let res=resolverSudoku(copia);
+  let res=solveSudoku(copia);
   let ms=performance.now()-t0;
   if (!res.ok) mostrarMensaje("No se pudo resolver","warn");
   else {
