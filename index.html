@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SudokuDev</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sudoku Solver</h1>
+    <p class="sub">Proyecto con JavaScript (backtracking, validaciones y guardado en localStorage)</p>
+
+    <div class="app">
+      <!-- Zona principal -->
+      <section class="card">
+        <div class="toolbar">
+          <button id="btnGenerate" class="primary">Generar Sudoku</button>
+          <select id="difficulty">
+            <option value="facil">Fácil</option>
+            <option value="medio">Medio</option>
+            <option value="dificil">Difícil</option>
+          </select>
+
+          <button id="btnValidate">Validar</button>
+          <button id="btnSolve" class="primary">Resolver</button>
+          <button id="btnClear" class="danger">Limpiar</button>
+          <button id="btnUndo">Deshacer</button>
+          <button id="btnRedo">Rehacer</button>
+          <button id="btnRestore">Restaurar</button>
+          <button id="btnForget" class="danger">Borrar</button>
+        </div>
+
+        <div id="grid" class="grid"></div>
+        <div id="message" class="msg"></div>
+      </section>
+
+      <aside class="card panel">
+        <div class="stat"><span class="muted">Tiempo</span> <strong id="clock">00:00</strong></div>
+        <div class="stat"><span class="muted">Intentos</span> <strong id="steps">0</strong></div>
+        <div class="stat"><span class="muted">Celdas vacías</span> <strong id="empties">81</strong></div>
+        <div class="toolbar">
+          <button id="btnStart">Iniciar</button>
+          <button id="btnPause">Pausar</button>
+          <button id="btnReset">Reiniciar</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
