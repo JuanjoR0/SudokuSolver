@@ -230,7 +230,25 @@ function iniciar() {
       input.className = "su";
       input.maxLength = 1;
       input.disabled = true; 
-      input.oninput = () => { actualizarVacias(); guardarDeshacer(); };
+
+      input.onkeydown = (e) => {
+        if (
+          !((e.key >= "1" && e.key <= "9") || e.key === "Backspace" ||
+            e.key === "Delete" ||e.key === "ArrowLeft" || e.key === "ArrowRight" ||
+            e.key === "ArrowUp" ||e.key === "ArrowDown" ||e.key === "Tab")
+        ) {
+          e.preventDefault();
+        }
+      };
+
+      input.oninput = () => {
+        if (!/^[1-9]$/.test(input.value)) {
+          input.value = "";
+        }
+        actualizarVacias();
+        guardarDeshacer();
+      };
+
       grid.appendChild(input);
     }
   }
@@ -239,5 +257,6 @@ function iniciar() {
   actualizarReloj();
   guardarDeshacer();
 }
+
 
 iniciar();
